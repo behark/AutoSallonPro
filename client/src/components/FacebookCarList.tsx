@@ -49,7 +49,7 @@ export const FacebookCarList: React.FC<FacebookCarListProps> = ({ pageId }) => {
                 <img
                   key={i}
                   src={img}
-                  alt={car.info || `Car ${idx + 1}`}"
+                  alt={car.info || `Car ${idx + 1}`}
                   className="h-14 w-20 object-cover rounded border"
                 />
               ))}
