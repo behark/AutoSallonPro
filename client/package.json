@@ -20,7 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "daisyui": "^5.0.46",
     "dotenv": "^17.2.0",
-    "drizzle-orm": "^0.36.0",
+    "drizzle-orm": "^0.30.5",
     "drizzle-zod": "^0.8.2",
     "framer-motion": "^12.23.3",
     "i18next": "^25.3.2",
