@@ -1,0 +1,27 @@
+[
+  {
+    "images": [
+      "https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80"
+    ],
+    "info": "2018 BMW 320d xDrive, Automatic, Diesel, 120,000km",
+    "price": "€17,900",
+    "created_time": "2023-06-01T12:00:00Z"
+  },
+  {
+    "images": [
+      "https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?auto=format&fit=crop&w=800&q=80"
+    ],
+    "info": "2016 Audi A4 2.0 TDI, Manual, Diesel, 150,000km",
+    "price": "€13,500",
+    "created_time": "2023-05-15T12:00:00Z"
+  },
+  {
+    "images": [
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "info": "2017 Mercedes-Benz C220d, Automatic, Diesel, 110,000km",
+    "price": "€19,200",
+    "created_time": "2023-04-20T12:00:00Z"
+  }
+]

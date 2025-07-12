@@ -1,5 +1,60 @@
 {
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "axios": "^1.10.0"
+    "@headlessui/react": "^2.2.4",
+    "@hookform/resolvers": "^5.1.1",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-switch": "^1.2.5",
+    "@radix-ui/react-tabs": "^1.1.12",
+    "@radix-ui/react-toast": "^1.2.14",
+    "@radix-ui/react-tooltip": "^1.2.7",
+    "@tanstack/react-query": "^5.83.0",
+    "axios": "^1.10.0",
+    "class-variance-authority": "^0.7.1",
+    "daisyui": "^5.0.46",
+    "dotenv": "^17.2.0",
+    "drizzle-zod": "^0.8.2",
+    "framer-motion": "^12.23.3",
+    "i18next": "^25.3.2",
+    "lucide-react": "^0.525.0",
+    "msw": "^2.10.4",
+    "react-dom": "^19.1.0",
+    "react-helmet-async": "^2.0.5",
+    "react-query": "^3.39.3",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.11",
+    "wouter": "^3.7.1",
+    "zod": "^4.0.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.0.13",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "make": "BMW",
+    "model": "320d xDrive",
+    "year": 2018,
+    "price": 17900,
+    "mileage": 120000,
+    "fuel": "Diesel",
+    "transmission": "Automatic",
+    "image": "https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "2",
+    "make": "Audi",
+    "model": "A4 2.0 TDI",
+    "year": 2016,
+    "price": 13500,
+    "mileage": 150000,
+    "fuel": "Diesel",
+    "transmission": "Manual",
+    "image": "https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "3",
+    "make": "Mercedes-Benz",
+    "model": "C220d",
+    "year": 2017,
+    "price": 19200,
+    "mileage": 110000,
+    "fuel": "Diesel",
+    "transmission": "Automatic",
+    "image": "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80"
+  }
+]

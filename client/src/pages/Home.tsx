@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { VehicleCard } from "../components/VehicleCard";
 import { SocialMediaFeed } from "../components/SocialMediaFeed";
 import { FacebookCarList } from "../components/FacebookCarList";
+import { InstagramCarList } from "../components/InstagramCarList";
+import { ErrorBoundary } from "../components/ErrorBoundary";
 import { UniversalTextEditor } from "../components/UniversalTextEditor";
 import { useTranslation } from "../lib/i18n";
 import { Vehicle } from "@shared/schema";
@@ -595,7 +597,10 @@ export default function Home() {
       {/* Social Media Feed */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <SocialMediaFeed />
+          <ErrorBoundary>
+              <FacebookCarList pageId="your-page-id" />
+            </ErrorBoundary>
+            <SocialMediaFeed />
         </div>
       </section>
 
@@ -603,6 +608,12 @@ export default function Home() {
       <section className="container mx-auto px-4 py-10">
         <h2 className="text-2xl font-bold mb-6">Facebook Cars</h2>
         <FacebookCarList pageId="2681347762153745" />
+      </section>
+
+      {/* Instagram Cars Section */}
+      <section className="container mx-auto px-4 py-10">
+        <h2 className="text-2xl font-bold mb-6">Instagram Cars</h2>
+        <InstagramCarList />
       </section>
 
       {/* Testimonials */}
