@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { Loader2, AlertCircle, RefreshCw, Car, Hash, Calendar, Image as ImageIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { getInstagramCarsEndpoint } from '../lib/config';
 import { InstagramCar } from '../lib/api/instagram';
 import { formatCurrency } from '../utils/formatters';

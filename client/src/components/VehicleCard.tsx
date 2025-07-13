@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Phone, Fuel, MapPin, Gauge } from "lucide-react";
+import { Heart, Phone, Fuel, MapPin, Gauge, Calendar, Key, Tag, ArrowRight, Clock, Info } from "lucide-react";
 import { Vehicle } from "@shared/schema";
 import { useTranslation } from "../lib/i18n";
 import { EditableBadge, EditableButton, EditableText } from "./EditableText";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
 
 interface VehicleCardProps {
   vehicle: Vehicle;
@@ -16,6 +17,7 @@ interface VehicleCardProps {
 
 export function VehicleCard({ vehicle, onViewDetails, onContact }: VehicleCardProps) {
   const { t } = useTranslation();
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleViewDetails = () => {
     onViewDetails?.(vehicle);
@@ -25,6 +27,11 @@ export function VehicleCard({ vehicle, onViewDetails, onContact }: VehicleCardPr
     onContact?.(vehicle);
   };
 
+  const handleToggleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsFavorite(!isFavorite);
+  };
+
   const formatPrice = (price: number) => {
     return `€${price.toLocaleString()}`;
   };
@@ -32,101 +39,148 @@ export function VehicleCard({ vehicle, onViewDetails, onContact }: VehicleCardPr
   const formatMileage = (mileage: number) => {
     return `${mileage.toLocaleString()} km`;
   };
+  
+  // Get the first image or use fallback
+  const vehicleImage = vehicle.images && vehicle.images.length > 0 
+    ? vehicle.images[0] 
+    : "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600";
 
   return (
-    <Card className="vehicle-card group">
-      <div className="relative">
-        <img
-          src={vehicle.images[0] || "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"}
-          alt={`${vehicle.brand} ${vehicle.model}`}
-          className="w-full h-64 object-contain bg-gray-100"
-        />
-        
-        <div className="absolute top-4 left-4">
-          <Badge variant="destructive" className="bg-accent">
-            <EditableBadge 
-              sectionKey="vehicle_import_badge"
-              defaultValue="Import from"
-              page="global"
-              section="vehicles"
-            /> {vehicle.importCountry}
-          </Badge>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="h-full"
+    >
+      <Card className="vehicle-card group h-full flex flex-col">
+        <div className="vehicle-card-image">
+          <img
+            src={vehicleImage}
+            alt={`${vehicle.brand} ${vehicle.model}`}
+            width="640"
+            height="360"
+            className="w-full h-full object-cover hover-zoom transition-transform duration-500"
+          />
+          
+          {/* Price tag */}
+          <div className="price-tag">
+            <span className="text-base md:text-lg font-bold">{formatPrice(vehicle.price)}</span>
+          </div>
+          
+          {/* Import badge */}
+          <div className="absolute top-4 left-4">
+            <Badge variant="destructive" className="badge-featured px-3 py-1.5 flex items-center gap-1">
+              <Tag className="h-3 w-3" />
+              <EditableBadge 
+                sectionKey="vehicle_import_badge"
+                defaultValue="Import from"
+                page="global"
+                section="vehicles"
+              /> {vehicle.importCountry}
+            </Badge>
+          </div>
+          
+          {/* Favorite button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleToggleFavorite}
+            className="absolute top-4 right-4 rounded-full bg-white/80 hover:bg-white shadow-lg text-accent hover:text-accent-700 transition-all duration-300"
+            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          >
+            <Heart className={`h-5 w-5 ${isFavorite ? 'fill-current' : ''}`} />
+          </Button>
         </div>
         
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white"
-        >
-          <Heart className="h-4 w-4" />
-        </Button>
-      </div>
-      
-      <CardContent className="p-6">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h4 className="text-xl font-bold text-dark-gray">
+        <CardContent className="p-5 flex-grow flex flex-col">
+          <div className="mb-3">
+            <h3 className="text-xl font-bold text-secondary-800 mb-1 line-clamp-1">
               {vehicle.brand} {vehicle.model}
-            </h4>
-            <p className="text-secondary">
-              {vehicle.year} • {vehicle.engine} • {vehicle.transmission}
-            </p>
+            </h3>
+            <div className="flex items-center text-secondary-600 text-sm">
+              <Calendar className="h-4 w-4 mr-1" />
+              <span className="mr-3">{vehicle.year}</span>
+              <Key className="h-4 w-4 mr-1" />
+              <span>{vehicle.transmission}</span>
+            </div>
           </div>
-          <div className="text-right">
-            <div className="text-2xl font-bold text-primary">{formatPrice(vehicle.price)}</div>
-            <EditableText 
-              sectionKey="vehicle_negotiable_label"
-              defaultValue="Negotiable"
-              className="text-sm text-secondary"
-              page="global"
-              section="vehicles"
-              as="div"
-            />
+          
+          {/* Features */}
+          <div className="grid grid-cols-2 gap-y-2 gap-x-4 mb-4 text-secondary-700 text-sm">
+            <div className="car-info-item">
+              <Gauge className="h-4 w-4 text-primary" />
+              <span>{formatMileage(vehicle.mileage)}</span>
+            </div>
+            <div className="car-info-item">
+              <Fuel className="h-4 w-4 text-primary" />
+              <span>{vehicle.fuelType}</span>
+            </div>
+            <div className="car-info-item">
+              <MapPin className="h-4 w-4 text-primary" />
+              <span>{vehicle.importCountry}</span>
+            </div>
+            <div className="car-info-item">
+              <Clock className="h-4 w-4 text-primary" />
+              <EditableText 
+                sectionKey="vehicle_available_label"
+                defaultValue="Available Now"
+                className=""
+                page="global"
+                section="vehicles"
+                as="span"
+              />
+            </div>
           </div>
-        </div>
-        
-        <div className="flex items-center justify-between text-sm text-secondary mb-4">
-          <div className="flex items-center">
-            <Gauge className="h-4 w-4 mr-2" />
-            <span>{formatMileage(vehicle.mileage)}</span>
+          
+          {/* Negotiable label */}
+          <div className="mb-4 text-sm">
+            <span className="inline-flex items-center text-secondary-600">
+              <Info className="h-4 w-4 mr-1" />
+              <EditableText 
+                sectionKey="vehicle_negotiable_label"
+                defaultValue="Price Negotiable"
+                className=""
+                page="global"
+                section="vehicles"
+                as="span"
+              />
+            </span>
           </div>
-          <div className="flex items-center">
-            <Fuel className="h-4 w-4 mr-2" />
-            <span>{vehicle.fuelType}</span>
-          </div>
-          <div className="flex items-center">
-            <MapPin className="h-4 w-4 mr-2" />
-            <span>{vehicle.importCountry}</span>
-          </div>
-        </div>
-        
-        {vehicle.description && (
-          <p className="text-sm text-secondary mb-4 line-clamp-2">
-            {vehicle.description}
-          </p>
-        )}
-        
-        <div className="flex space-x-2">
-          <Link href={`/vehicle/${vehicle.id}`} className="flex-1">
-            <Button className="w-full bg-primary-light hover:bg-primary">
+          
+          {/* Action buttons */}
+          <div className="mt-auto pt-4 border-t border-gray-200 flex flex-col sm:flex-row gap-3">
+            <Link href={`/vehicles/${vehicle.id}`} className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                onClick={handleViewDetails}
+                className="btn-primary w-full flex items-center justify-center gap-2"
+              >
+                <EditableButton 
+                  sectionKey="vehicle_view_details_button"
+                  defaultValue="View Details"
+                  page="global"
+                  section="vehicles"
+                />
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+            
+            <Button
+              variant="secondary"
+              onClick={handleContact}
+              className="btn-accent w-full sm:w-auto flex items-center justify-center gap-2"
+            >
+              <Phone className="h-4 w-4" />
               <EditableButton 
-                sectionKey="vehicle_details_button"
-                defaultValue="View Details"
+                sectionKey="vehicle_contact_button"
+                defaultValue="Contact"
                 page="global"
                 section="vehicles"
               />
             </Button>
-          </Link>
-          <Button
-            onClick={handleContact}
-            variant="outline"
-            size="icon"
-            className="border-primary-light text-primary-light hover:bg-primary-light hover:text-white"
-          >
-            <Phone className="h-4 w-4" />
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }

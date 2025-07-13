@@ -11,6 +11,7 @@ import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import VehicleDetails from "@/pages/VehicleDetails";
 import Admin from "@/pages/Admin";
+import AdminCarManagement from "@/pages/AdminCarManagement";
 import ContentManager from "@/pages/ContentManager";
 import AdvancedContentManager from "@/pages/AdvancedContentManager";
 import FullControlManager from "@/pages/FullControlManager";
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/admin" component={Admin} />
+        <Route path="/admin/cars" component={AdminCarManagement} />
         <Route path="/content-manager" component={ContentManager} />
         <Route path="/advanced-content" component={AdvancedContentManager} />
         <Route path="/full-control" component={FullControlManager} />

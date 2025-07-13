@@ -1,0 +1,86 @@
+/* Browser Compatibility CSS
+ * This file ensures consistent styling and behavior across different browsers
+ */
+
+/* Enhanced animation performance for all browsers */
+.animated {
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+/* Better gradient support for older browsers */
+.gradient-background {
+  background: #4f46e5;
+  background: -webkit-linear-gradient(to right, #4f46e5, #6366f1);
+  background: -moz-linear-gradient(to right, #4f46e5, #6366f1);
+  background: linear-gradient(to right, #4f46e5, #6366f1);
+}
+
+/* Focus styles for better accessibility across browsers */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 767px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  button, .button, a.button, [role="button"] {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+}
+
+/* Safari/iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .ios-momentum-scrolling {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix for iOS button styling */
+  button, input[type="submit"] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+  .firefox-shadow-fix {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Edge specific fixes */
+@supports (-ms-ime-align:auto) {
+  .edge-gradient-fix {
+    background: linear-gradient(to right, #4f46e5, #6366f1);
+  }
+}
+
+/* Print styles for better document printing */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
