@@ -1,13 +1,13 @@
-/* Base Tailwind imports - must come before other imports */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Font imports */
+/* Font imports - must come first */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 /* Browser compatibility styles */
 @import './styles/browser-compatibility.css';
+
+/* Base Tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   /* Base colors */

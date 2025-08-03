@@ -88,18 +88,18 @@ export const trackPerformance = async <T>(
   operation: string,
   callback: () => Promise<T>
 ): Promise<T> => {
-  const transaction = Sentry.startTransaction({
-    name,
-    op: operation
-  });
-  
-  try {
-    Sentry.configureScope(scope => {
-      scope.setSpan(transaction);
+  // Only track performance in production or when Sentry is enabled
+  if (isProd() || import.meta.env.VITE_ENABLE_SENTRY === 'true') {
+    return Sentry.withScope(async (scope) => {
+      const span = Sentry.startSpan({
+        name,
+        op: operation
+      }, async () => {
+        return await callback();
+      });
+      return span;
     });
-    
+  } else {
     return await callback();
-  } finally {
-    transaction.finish();
   }
 };

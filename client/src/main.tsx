@@ -1,12 +1,12 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { initializeSentry } from "./utils/errorMonitoring";
+// import { initializeSentry } from "./utils/errorMonitoring";
 import { initializeGA } from "./utils/analytics";
 import { isProd } from "./utils/environment";
 
 // Initialize error monitoring and analytics
-initializeSentry();
+// initializeSentry(); // Temporarily disabled due to compatibility issues
 
 // Only initialize analytics in production to avoid affecting metrics during development
 if (isProd()) {
