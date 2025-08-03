@@ -26,13 +26,18 @@ if (import.meta.env.MODE === "development") {
 performance.mark('app-start');
 
 // Render the application
+console.log("Starting React app initialization...");
 const container = document.getElementById("root");
+console.log("Container found:", container);
 if (!container) {
+  console.error("Root element not found!");
   throw new Error("Root element not found");
 }
 
 const root = createRoot(container);
+console.log("Root created, rendering app...");
 root.render(<App />);
+console.log("App rendered successfully!");
 
 // Performance measurement for total page initialization
 performance.measure('app-initialization', 'app-start');

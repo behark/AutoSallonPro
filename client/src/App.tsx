@@ -18,6 +18,7 @@ import FullControlManager from "./pages/FullControlManager";
 import NotFound from "./pages/not-found";
 
 function Router() {
+  console.log("Router component rendering...");
   return (
     <Layout>
       <Switch>
@@ -39,6 +40,7 @@ function Router() {
 }
 
 function App() {
+  console.log("App component rendering...");
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
