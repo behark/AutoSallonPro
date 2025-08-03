@@ -1,50 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { LanguageSwitcher } from "./LanguageSwitcher";
-import { useTranslation } from "../lib/i18n";
-import { detectLanguageFromLocation } from "../lib/geolocation";
-import { setTranslations } from "../lib/i18n";
-import { translations } from "../data/translations";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export function Layout({ children }: LayoutProps) {
-  const { t, changeLanguage } = useTranslation();
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    setTranslations(translations);
-    
-    // Auto-detect language on first load
-    const autoDetectLanguage = async () => {
-      const savedLanguage = localStorage.getItem("language");
-      if (!savedLanguage) {
-        try {
-          const detectedLanguage = await detectLanguageFromLocation();
-          changeLanguage(detectedLanguage);
-        } catch (error) {
-          console.warn("Language detection failed:", error);
-        }
-      }
-    };
-    
-    autoDetectLanguage();
-  }, [changeLanguage]);
-
   const navigation = [
-    { name: t("nav.home"), href: "/" },
-    { name: t("nav.inventory"), href: "/inventory" },
-    { name: t("nav.services"), href: "/services" },
-    { name: t("nav.about"), href: "/about" },
-    { name: t("nav.contact"), href: "/contact" },
-    { name: "Admin", href: "/admin" },
-    { name: "Full Control", href: "/full-control" },
+    { name: "Home", href: "/" },
+    { name: "Inventory", href: "/inventory" },
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActiveLink = (href: string) => {
@@ -86,7 +58,6 @@ export function Layout({ children }: LayoutProps) {
             </div>
             
             <div className="flex items-center space-x-4">
-              <LanguageSwitcher />
               <Button
                 variant="ghost"
                 size="icon"
@@ -145,7 +116,7 @@ export function Layout({ children }: LayoutProps) {
                   <p className="text-sm text-gray-400">Premium Used Cars</p>
                 </div>
               </div>
-              <p className="text-gray-400 mb-4">{t("footer.description")}</p>
+              <p className="text-gray-400 mb-4">Premium used car dealership in Mitrovica, Kosovo. Specializing in quality imports from Finland and Germany since 2005.</p>
               <div className="flex space-x-4">
                 <a
                   href="https://www.instagram.com/aniautosallon/"
@@ -161,7 +132,7 @@ export function Layout({ children }: LayoutProps) {
             </div>
             
             <div>
-              <h5 className="font-semibold mb-4">{t("footer.quickLinks")}</h5>
+              <h5 className="font-semibold mb-4">Quick Links</h5>
               <ul className="space-y-2 text-gray-400">
                 {navigation.map((item) => (
                   <li key={item.name}>
@@ -174,7 +145,7 @@ export function Layout({ children }: LayoutProps) {
             </div>
             
             <div>
-              <h5 className="font-semibold mb-4">{t("footer.services")}</h5>
+              <h5 className="font-semibold mb-4">Services</h5>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/services" className="hover:text-white transition-colors">Vehicle Import</Link></li>
                 <li><Link href="/services" className="hover:text-white transition-colors">Custom Orders</Link></li>
@@ -184,7 +155,7 @@ export function Layout({ children }: LayoutProps) {
             </div>
             
             <div>
-              <h5 className="font-semibold mb-4">{t("footer.contactInfo")}</h5>
+              <h5 className="font-semibold mb-4">Contact Info</h5>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center">
                   <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -210,7 +181,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 AUTO ANI. {t("footer.rights")}</p>
+            <p>&copy; 2024 AUTO ANI. All rights reserved.</p>
           </div>
         </div>
       </footer>
