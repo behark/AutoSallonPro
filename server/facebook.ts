@@ -5,7 +5,7 @@ const router = express.Router();
 
 const FB_APP_ID = process.env.FB_APP_ID || '723238287294850';
 const FB_APP_SECRET = process.env.FB_APP_SECRET || '4537bb4500a20251b9baf5df95dcafb1';
-const FB_PAGE_ID = process.env.FB_PAGE_ID || '';
+const FB_PAGE_ID = process.env.FB_PAGE_ID || '723238287294850';
 
 // Utility: Get App Access Token
 async function getAppAccessToken() {

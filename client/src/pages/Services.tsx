@@ -27,25 +27,25 @@ export default function Services() {
     {
       step: 1,
       title: "Vehicle Selection",
-      description: "Choose from our inventory or request a custom search",
+      description: "Choose from our Finnish inventory or request a custom search",
       icon: Search,
     },
     {
       step: 2,
       title: "Documentation",
-      description: "We handle all paperwork and customs documentation",
+      description: "We handle all paperwork including Finnish export and Kosovo import documents",
       icon: FileText,
     },
     {
       step: 3,
       title: "Transport",
-      description: "Professional transport from Finland or Germany",
+      description: "Professional transport from Finland to Kosovo with full insurance",
       icon: Truck,
     },
     {
       step: 4,
       title: "Delivery",
-      description: "Vehicle delivered and registered in Kosovo",
+      description: "Vehicle delivered and registered in Kosovo with warranty support",
       icon: CheckCircle,
     },
   ];
@@ -53,23 +53,23 @@ export default function Services() {
   const serviceFeatures = [
     {
       icon: ShieldCheck,
-      title: "Quality Assurance",
-      description: "Every vehicle undergoes comprehensive inspection before import",
+      title: "Finnish Quality Assurance",
+      description: "Every vehicle from Finland undergoes comprehensive inspection with complete service history verification",
     },
     {
       icon: FileText,
-      title: "Full Documentation",
-      description: "Complete handling of all import and registration paperwork",
+      title: "Complete Documentation",
+      description: "Full handling of Finnish export certificates, Kosovo import permits, and registration paperwork",
     },
     {
       icon: DollarSign,
       title: "Transparent Pricing",
-      description: "No hidden fees - clear pricing breakdown for all services",
+      description: "No hidden fees - clear breakdown of vehicle cost, transport, taxes, and registration fees",
     },
     {
       icon: HeartHandshake,
-      title: "Personal Service",
-      description: "Dedicated support throughout the entire import process",
+      title: "19+ Years Experience",
+      description: "Nearly two decades of expertise in Finnish car imports with personalized customer service",
     },
   ];
 
@@ -81,7 +81,7 @@ export default function Services() {
           <div className="text-center text-white">
             <EditableTitle 
               sectionKey="services_hero_title"
-              defaultValue="Our Services"
+              defaultValue="Finnish Car Import Services"
               className="text-5xl font-bold mb-6"
               page="services"
               section="hero"
@@ -89,7 +89,7 @@ export default function Services() {
             />
             <EditableDescription 
               sectionKey="services_hero_subtitle"
-              defaultValue="Professional automotive import services from Finland and Germany to Kosovo"
+              defaultValue="Professional automotive import services from Finland to Kosovo. Quality vehicles with complete service history since 2005."
               className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto"
               page="services"
               section="hero"

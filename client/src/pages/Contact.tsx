@@ -19,27 +19,27 @@ export default function Contact() {
   const contactMethods = [
     {
       icon: Phone,
-      title: t("contact.info.phone"),
-      info: "+383 XX XXX XXX",
+      title: "Phone",
+      info: "+383 28 XXX XXX",
       description: "Call us during business hours",
     },
     {
       icon: Mail,
-      title: t("contact.info.email"),
-      info: "info@autoani.com",
+      title: "Email",
+      info: "info@autoani.co",
       description: "Email us anytime",
     },
     {
       icon: MessageSquare,
       title: "WhatsApp",
-      info: "+383 XX XXX XXX",
+      info: "+383 4X XXX XXX",
       description: "Quick messaging support",
     },
     {
       icon: Globe,
       title: "Instagram",
       info: "@aniautosallon",
-      description: "Follow our latest updates",
+      description: "Follow our latest cars",
     },
   ];
 
@@ -55,9 +55,9 @@ export default function Contact() {
       <section className="hero-section py-20">
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-6">{t("contact.title")}</h1>
+            <h1 className="text-5xl font-bold mb-6">Contact AUTO ANI</h1>
             <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              {t("contact.subtitle")}
+              Get in touch for quality Finnish car imports in Mitrovica, Kosovo. We're here to help you find your perfect vehicle.
             </p>
           </div>
         </div>
@@ -95,8 +95,8 @@ export default function Contact() {
                     <MapPin className="h-6 w-6 text-primary-light" />
                   </div>
                   <div>
-                    <div className="font-semibold text-dark-gray mb-1">{t("contact.info.address")}</div>
-                    <div className="text-secondary">Gsmend Ballii, Mitrovica, Kosovo 40000</div>
+                    <div className="font-semibold text-dark-gray mb-1">Address</div>
+                    <div className="text-secondary">AUTO ANI<br/>Mitrovica, Kosovo 40000</div>
                   </div>
                 </div>
                 
@@ -105,8 +105,8 @@ export default function Contact() {
                     <Phone className="h-6 w-6 text-primary-light" />
                   </div>
                   <div>
-                    <div className="font-semibold text-dark-gray mb-1">{t("contact.info.phone")}</div>
-                    <div className="text-secondary">+383 XX XXX XXX</div>
+                    <div className="font-semibold text-dark-gray mb-1">Phone</div>
+                    <div className="text-secondary">+383 28 XXX XXX</div>
                   </div>
                 </div>
                 
@@ -115,8 +115,8 @@ export default function Contact() {
                     <Mail className="h-6 w-6 text-primary-light" />
                   </div>
                   <div>
-                    <div className="font-semibold text-dark-gray mb-1">{t("contact.info.email")}</div>
-                    <div className="text-secondary">info@autoani.com</div>
+                    <div className="font-semibold text-dark-gray mb-1">Email</div>
+                    <div className="text-secondary">info@autoani.co</div>
                   </div>
                 </div>
                 
@@ -125,7 +125,7 @@ export default function Contact() {
                     <Clock className="h-6 w-6 text-primary-light" />
                   </div>
                   <div>
-                    <div className="font-semibold text-dark-gray mb-1">{t("contact.info.hours")}</div>
+                    <div className="font-semibold text-dark-gray mb-1">Business Hours</div>
                     <div className="text-secondary space-y-1">
                       {businessHours.map((schedule, index) => (
                         <div key={index} className="flex justify-between">
@@ -143,8 +143,9 @@ export default function Contact() {
                 <div className="bg-gray-100 h-64 rounded-lg flex items-center justify-center">
                   <div className="text-center">
                     <Navigation className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500 font-semibold">Interactive Map</p>
-                    <p className="text-sm text-gray-400">Gsmend Ballii, Mitrovica, Kosovo</p>
+                    <p className="text-gray-500 font-semibold">Visit Our Showroom</p>
+                    <p className="text-sm text-gray-400">AUTO ANI - Mitrovica, Kosovo</p>
+                    <p className="text-xs text-gray-400 mt-2">Near city center, easy parking available</p>
                   </div>
                 </div>
               </Card>

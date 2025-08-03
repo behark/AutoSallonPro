@@ -55,6 +55,7 @@ import {
   MapPin,
   PhoneCall,
   Mail,
+  Facebook,
 } from "lucide-react";
 
 export default function Home() {
@@ -70,31 +71,31 @@ export default function Home() {
   console.log("Featured vehicles count:", featuredVehicles.length);
 
   const brands = [
-    { name: "Škoda", image: "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
-    { name: "Volkswagen", image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
-    { name: "Seat", image: "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
+    { name: "Volvo", image: "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
     { name: "Mercedes", image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
     { name: "BMW", image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
     { name: "Audi", image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
+    { name: "Volkswagen", image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
+    { name: "Toyota", image: "https://images.unsplash.com/photo-1549317336-206569e8475c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80" },
   ];
 
   const testimonials = [
     {
-      name: "Marko Petrović",
+      name: "Driton Berisha",
       location: "Pristina, Kosovo",
-      text: "Excellent service from AUTO ANI. They helped me import my BMW from Germany and handled all the paperwork. Professional and trustworthy!",
+      text: "Excellent service from AUTO ANI. They helped me import a reliable Volvo from Finland and handled all the paperwork. Professional and trustworthy business!",
       rating: 5,
     },
     {
-      name: "Elena Vuković",
-      location: "Mitrovica, Kosovo",
-      text: "Great experience buying my Mercedes from AUTO ANI. The car was exactly as described and the import process was smooth. Highly recommend!",
+      name: "Fatima Krasniqi",
+      location: "Mitrovica, Kosovo", 
+      text: "Great experience buying my Mercedes from AUTO ANI. The car was exactly as described and the import process was transparent. Highly recommend for Finnish imports!",
       rating: 5,
     },
     {
-      name: "Ahmed Rexhepi",
+      name: "Agron Mustafa",
       location: "Ferizaj, Kosovo",
-      text: "AUTO ANI found me the perfect Audi through their custom order service. Fair pricing and excellent customer service throughout the process.",
+      text: "AUTO ANI found me the perfect BMW through their Finland import service. Fair pricing and excellent customer service throughout the entire process.",
       rating: 5,
     },
   ];
@@ -128,7 +129,7 @@ export default function Home() {
                   <Sparkles className="h-4 w-4 mr-2" />
                   <EditableText 
                     sectionKey="hero_badge_text"
-                    defaultValue="Premium Auto Dealership"
+                    defaultValue="Quality Finnish Cars Since 2005"
                     className=""
                     page="home"
                     section="hero"
@@ -138,7 +139,7 @@ export default function Home() {
 
                 <EditableTitle 
                   sectionKey="hero_title"
-                  defaultValue="Discover Your Dream Car at AUTO ANI"
+                  defaultValue="Premium Used Cars from Finland"
                   className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight"
                   page="home"
                   section="hero"
@@ -146,7 +147,7 @@ export default function Home() {
                 
                 <EditableDescription 
                   sectionKey="hero_subtitle"
-                  defaultValue="Premium vehicles imported from Germany and Finland with comprehensive history and unmatched quality assurance."
+                  defaultValue="Located in Mitrovica, Kosovo. We import quality used vehicles directly from Finland with complete service history and reliable condition reports."
                   className="text-xl text-white/90 max-w-lg"
                   page="home"
                   section="hero"
@@ -187,7 +188,7 @@ export default function Home() {
                   <div className="stat-item">
                     <EditableText 
                       sectionKey="hero_stats_cars"
-                      defaultValue="100+"
+                      defaultValue="300+"
                       className="text-4xl font-bold bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent"
                       page="home"
                       section="hero"
@@ -195,7 +196,7 @@ export default function Home() {
                     />
                     <EditableText 
                       sectionKey="hero_stats_cars_label"
-                      defaultValue="Premium Vehicles"
+                      defaultValue="Cars Imported Yearly"
                       className="text-white/70 font-medium text-sm mt-1"
                       page="home"
                       section="hero"
@@ -205,7 +206,7 @@ export default function Home() {
                   <div className="stat-item">
                     <EditableText 
                       sectionKey="hero_stats_experience"
-                      defaultValue="10+"
+                      defaultValue="19+"
                       className="text-4xl font-bold bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent"
                       page="home"
                       section="hero"
@@ -223,7 +224,7 @@ export default function Home() {
                   <div className="stat-item">
                     <EditableText 
                       sectionKey="hero_stats_customers"
-                      defaultValue="500+"
+                      defaultValue="1500+"
                       className="text-4xl font-bold bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent"
                       page="home"
                       section="hero"
@@ -321,14 +322,14 @@ export default function Home() {
           <div className="text-center mb-12">
             <EditableTitle 
               sectionKey="brands_title"
-              defaultValue="Premium Brands We Import"
+              defaultValue="Quality Brands from Finland"
               className="text-3xl font-bold text-dark-gray mb-4"
               page="home"
               section="brands"
             />
             <EditableDescription 
               sectionKey="brands_subtitle"
-              defaultValue="Trusted automotive brands from Finland and Germany"
+              defaultValue="Trusted automotive brands imported directly from Finland"
               className="text-lg text-secondary"
               page="home"
               section="brands"
@@ -896,17 +897,27 @@ export default function Home() {
       {/* Social Media Feed */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <ErrorBoundary>
-              <FacebookCarList pageId="your-page-id" />
-            </ErrorBoundary>
             <SocialMediaFeed />
         </div>
       </section>
 
       {/* Facebook Cars Section */}
-      <section className="container mx-auto px-4 py-10">
-        <h2 className="text-2xl font-bold mb-6">Facebook Cars</h2>
-        <FacebookCarList pageId="2681347762153745" />
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="bg-blue-100 text-blue-800 px-4 py-1.5 mb-4 rounded-full font-medium text-sm">
+              <Facebook className="h-4 w-4 mr-2" />
+              Latest from Facebook
+            </Badge>
+            <h2 className="text-3xl font-bold text-secondary-900 mb-4">Cars from Our Facebook Page</h2>
+            <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
+              Check out the latest vehicles we've posted on our Facebook page with real photos and details.
+            </p>
+          </div>
+          <ErrorBoundary>
+            <FacebookCarList pageId="723238287294850" />
+          </ErrorBoundary>
+        </div>
       </section>
 
       {/* Instagram Cars Section */}

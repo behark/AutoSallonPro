@@ -22,33 +22,33 @@ export default function About() {
 
   const milestones = [
     {
-      year: "2014",
+      year: "2005",
       title: "Company Founded",
-      description: "AUTO ANI established in Mitrovica, Kosovo",
+      description: "AUTO ANI established in Mitrovica, Kosovo - specializing in imported vehicles",
       icon: Calendar,
     },
     {
-      year: "2016",
-      title: "First European Import",
-      description: "Successfully imported first vehicle from Germany",
+      year: "2007",
+      title: "First Finland Import",
+      description: "Successfully established import partnership with Finnish dealers",
       icon: Car,
     },
     {
-      year: "2018",
-      title: "Finland Partnership",
-      description: "Expanded import services to include Finland",
+      year: "2010",
+      title: "Expanded Operations",
+      description: "Grew import services and established trusted dealer network",
       icon: Globe,
     },
     {
-      year: "2020",
-      title: "500+ Happy Customers",
-      description: "Reached milestone of 500 satisfied customers",
+      year: "2015",
+      title: "1000+ Happy Customers",
+      description: "Reached milestone of 1000 satisfied customers across Kosovo",
       icon: Users,
     },
     {
       year: "2024",
       title: "Premium Dealer Status",
-      description: "Recognized as premium automotive dealer in Kosovo",
+      description: "Nearly 20 years of excellence in automotive import and sales",
       icon: Award,
     },
   ];
@@ -77,10 +77,10 @@ export default function About() {
   ];
 
   const teamStats = [
-    { number: "10+", label: t("about.stats.experience") },
-    { number: "500+", label: t("about.stats.customers") },
-    { number: "100+", label: t("about.stats.imports") },
-    { number: "6", label: t("about.stats.brands") },
+    { number: "19+", label: "Years of Experience" },
+    { number: "1500+", label: "Satisfied Customers" },
+    { number: "300+", label: "Cars Imported Annually" },
+    { number: "Finland", label: "Primary Import Source" },
   ];
 
   return (
