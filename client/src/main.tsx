@@ -2,29 +2,36 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 // import { initializeSentry } from "./utils/errorMonitoring";
-import { initializeGA } from "./utils/analytics";
+// import { initializeGA } from "./utils/analytics";
 import { isProd } from "./utils/environment";
 
 // Initialize error monitoring and analytics
 // initializeSentry(); // Temporarily disabled due to compatibility issues
 
 // Only initialize analytics in production to avoid affecting metrics during development
-if (isProd()) {
-  initializeGA();
-}
+// if (isProd()) {
+//   initializeGA(); // Temporarily disabled
+// }
 
-// Start mock service worker in development mode
-if (process.env.NODE_ENV === "development") {
+// Start mock service worker only in development mode
+if (import.meta.env.MODE === "development") {
   import("./mocks/browser").then(({ worker }) => {
-    worker.start();
-  });
+    worker.start({
+      onUnhandledRequest: 'bypass'
+    });
+  }).catch(console.error);
 }
 
 // Performance mark for page load
 performance.mark('app-start');
 
 // Render the application
-const root = createRoot(document.getElementById("root")!);
+const container = document.getElementById("root");
+if (!container) {
+  throw new Error("Root element not found");
+}
+
+const root = createRoot(container);
 root.render(<App />);
 
 // Performance measurement for total page initialization
